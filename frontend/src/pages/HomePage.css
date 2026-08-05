@@ -5,6 +5,8 @@
   min-height: calc(100vh - var(--navbar-height));
   display: flex;
   align-items: center;
+  padding-top: 0;
+  padding-bottom: var(--space-xl);
 }
 
 .hero__inner {
@@ -150,8 +152,8 @@
 
 .hero__avatar {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 380px;
+  height: 380px;
 }
 
 .hero__avatar-ring {
@@ -180,7 +182,7 @@
 
 .hero__avatar-inner {
   position: absolute;
-  inset: 12px;
+  inset: 6px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(6, 214, 160, 0.05));
   display: flex;
@@ -189,15 +191,11 @@
   overflow: hidden;
 }
 
-.hero__avatar-initials {
-  font-size: 5rem;
-  font-weight: 900;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: 0.6;
-  user-select: none;
+.hero__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .hero__avatar-glow {
@@ -320,12 +318,8 @@
   }
 
   .hero__avatar {
-    width: 240px;
-    height: 240px;
-  }
-
-  .hero__avatar-initials {
-    font-size: 3.5rem;
+    width: 280px;
+    height: 280px;
   }
 
   .stats__inner {
@@ -340,12 +334,8 @@
   }
 
   .hero__avatar {
-    width: 200px;
-    height: 200px;
-  }
-
-  .hero__avatar-initials {
-    font-size: 3rem;
+    width: 240px;
+    height: 240px;
   }
 
   .hero__btn {

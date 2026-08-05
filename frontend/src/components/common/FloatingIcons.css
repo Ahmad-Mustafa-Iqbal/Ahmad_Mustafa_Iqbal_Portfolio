@@ -1,0 +1,36 @@
+/* ── Floating Icons Background ── */
+
+.floating-icons-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-icon {
+  position: absolute;
+  display: inline-block;
+  animation: floatIcon linear infinite;
+  filter: grayscale(0.3);
+  user-select: none;
+  will-change: transform;
+}
+
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-40px) translateX(20px) rotate(90deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(-15px) translateX(-25px) rotate(180deg) scale(0.95);
+  }
+  75% {
+    transform: translateY(-50px) translateX(15px) rotate(270deg) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(360deg) scale(1);
+  }
+}

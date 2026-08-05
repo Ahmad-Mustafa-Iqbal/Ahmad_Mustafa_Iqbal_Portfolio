@@ -4,6 +4,7 @@
 
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
+import FloatingIcons from '../components/common/FloatingIcons';
 import career from '../data/career';
 import { HiAcademicCap, HiBriefcase, HiStar } from 'react-icons/hi';
 import './CareerPage.css';
@@ -23,11 +24,12 @@ const typeColors = {
 export default function CareerPage() {
   return (
     <div className="career-page">
+      <FloatingIcons />
       <section className="career-hero section">
         <div className="container">
           <SectionTitle
-            title="My Journey"
-            subtitle="Education, experience, and milestones that shaped my path in AI and technology."
+            title="Career"
+            subtitle="From classrooms to real-world AI — my academic journey, hands-on experience in Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI & Agentic AI, and the milestones that shaped me along the way."
           />
         </div>
       </section>

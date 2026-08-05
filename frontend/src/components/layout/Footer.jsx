@@ -21,16 +21,16 @@ export default function Footer() {
         <div className="footer__section footer__contact">
           <h4 className="footer__heading">Get In Touch</h4>
           <p className="footer__text">
-            Open to opportunities and collaborations.
+            Email me directly for collaborations or inquiries.
           </p>
-          <a href="mailto:your.email@example.com" className="footer__email-btn">
-            Say Hello 👋
+          <a href="mailto:ahmadmustafaand@gmail.com" className="footer__email-btn">
+            Send an Email ✉️
           </a>
         </div>
 
         <div className="footer__section footer__brand">
           <p className="footer__built">
-            Built with <span className="footer__heart">❤️</span>
+            Powered by Code &amp; Neural Networks 🧠
           </p>
           <p className="footer__copyright">
             © {currentYear} Ahmad Mustafa Iqbal
@@ -40,22 +40,24 @@ export default function Footer() {
         <div className="footer__section footer__social">
           <h4 className="footer__heading">Connect</h4>
           <div className="footer__social-icons">
-            {socialLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <a
-                  key={link.id}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer__social-link"
-                  aria-label={link.label}
-                  title={link.label}
-                >
-                  <Icon size={18} />
-                </a>
-              );
-            })}
+            {socialLinks
+              .filter((link) => link.id !== 'email')
+              .map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer__social-link"
+                    aria-label={link.label}
+                    title={link.label}
+                  >
+                    <Icon size={18} />
+                  </a>
+                );
+              })}
           </div>
         </div>
       </div>

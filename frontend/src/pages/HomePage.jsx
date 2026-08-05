@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import socialLinks from '../data/socialLinks';
 import AnimatedCounter from '../components/common/AnimatedCounter';
+import profilePic from '../assets/Me.png';
 import './HomePage.css';
 
-const roles = ['AI Engineer', 'Machine Learning Enthusiast', 'Data Scientist', 'Problem Solver'];
+const roles = ['AI Engineer', 'Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision', 'Gen AI', 'Agentic AI'];
 
 export default function HomePage() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -138,7 +139,7 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
 
-          {/* Profile Picture Placeholder */}
+          {/* Profile Picture */}
           <motion.div
             className="hero__image"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -148,7 +149,7 @@ export default function HomePage() {
             <div className="hero__avatar">
               <div className="hero__avatar-ring" />
               <div className="hero__avatar-inner">
-                <span className="hero__avatar-initials">AI</span>
+                <img src={profilePic} alt="Ahmad Mustafa Iqbal" className="hero__avatar-img" />
               </div>
               <div className="hero__avatar-glow" />
             </div>

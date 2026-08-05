@@ -6,15 +6,15 @@
 import { useEffect, useRef } from 'react';
 import './ParticleBackground.css';
 
-const PARTICLE_COUNT = 80;
-const CONNECTION_DIST = 140;
-const MOUSE_RADIUS = 200;
-const BASE_SPEED = 0.03;
+const PARTICLE_COUNT = 110;
+const CONNECTION_DIST = 155;
+const MOUSE_RADIUS = 220;
+const BASE_SPEED = 0.04;
 const PARTICLE_COLOR = '76, 201, 240';
-const BASE_PARTICLE_OPACITY = 0.4;
-const BASE_LINE_OPACITY = 0.25;
-const CURSOR_PARTICLE_OPACITY = 0.7;
-const CURSOR_LINE_OPACITY = 0.5;
+const BASE_PARTICLE_OPACITY = 0.5;
+const BASE_LINE_OPACITY = 0.3;
+const CURSOR_PARTICLE_OPACITY = 0.8;
+const CURSOR_LINE_OPACITY = 0.55;
 
 export default function ParticleBackground() {
   const canvasRef = useRef(null);

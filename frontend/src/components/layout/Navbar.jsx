@@ -12,6 +12,7 @@ const navItems = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/career', label: 'Career' },
+  { path: '/my-story', label: 'My Story' },
   { path: '/projects', label: 'Projects' },
   { path: '/certificates', label: 'Certificates' },
 ];
@@ -43,7 +44,7 @@ export default function Navbar() {
       <div className="navbar__inner container">
         <NavLink to="/" className="navbar__logo" onClick={closeMenu}>
           <span className="navbar__logo-bracket">&lt;</span>
-          <span className="navbar__logo-name">AMI</span>
+          <span className="navbar__logo-name">Ahmad.AI</span>
           <span className="navbar__logo-bracket"> /&gt;</span>
         </NavLink>
 

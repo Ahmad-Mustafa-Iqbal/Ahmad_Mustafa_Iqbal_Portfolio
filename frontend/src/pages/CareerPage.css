@@ -1,8 +1,12 @@
 /* ── Career Page ── */
 
 .career-hero {
-  padding-top: var(--space-3xl);
-  padding-bottom: var(--space-xl);
+  padding-top: var(--space-2xl);
+  padding-bottom: 0;
+}
+
+.career-timeline {
+  padding-top: 0 !important;
 }
 
 /* ── Timeline ── */
@@ -10,7 +14,7 @@
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  padding: var(--space-xl) 0;
+  padding: 0 0 var(--space-xl) 0;
 }
 
 .timeline__line {

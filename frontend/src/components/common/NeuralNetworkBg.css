@@ -1,0 +1,66 @@
+/* ── Neural Network Background ── */
+
+.neural-network-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.neural-network-bg__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Floating tech labels ── */
+.neural-node-label {
+  position: absolute;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(76, 201, 240, 0.45);
+  text-shadow:
+    0 0 8px rgba(76, 201, 240, 0.2),
+    0 0 20px rgba(76, 201, 240, 0.06);
+  user-select: none;
+  pointer-events: none;
+  animation: neuralNodePulse linear infinite;
+  will-change: transform, opacity;
+  white-space: nowrap;
+}
+
+/* Some labels are "major" nodes — slightly bigger & brighter */
+.neural-node-label--major {
+  font-size: 0.85rem;
+  color: rgba(76, 201, 240, 0.55);
+  text-shadow:
+    0 0 12px rgba(76, 201, 240, 0.3),
+    0 0 30px rgba(76, 201, 240, 0.1);
+}
+
+@keyframes neuralNodePulse {
+  0% {
+    opacity: var(--node-base-opacity, 0.35);
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    opacity: calc(var(--node-base-opacity, 0.35) * 1.4);
+    transform: translate(var(--drift-x1, 6px), var(--drift-y1, -10px)) scale(1.04);
+  }
+  50% {
+    opacity: var(--node-base-opacity, 0.35);
+    transform: translate(var(--drift-x2, -8px), var(--drift-y2, 5px)) scale(0.98);
+  }
+  75% {
+    opacity: calc(var(--node-base-opacity, 0.35) * 1.25);
+    transform: translate(var(--drift-x3, 4px), var(--drift-y3, -6px)) scale(1.02);
+  }
+  100% {
+    opacity: var(--node-base-opacity, 0.35);
+    transform: translate(0, 0) scale(1);
+  }
+}

@@ -147,7 +147,6 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <div className="hero__avatar">
-              <div className="hero__avatar-ring" />
               <div className="hero__avatar-inner">
                 <img src={profilePic} alt="Ahmad Mustafa Iqbal" className="hero__avatar-img" />
               </div>
@@ -162,7 +161,7 @@ export default function HomePage() {
         <div className="stats__inner container">
           {[
             { label: 'CGPA', value: 3.87, suffix: '', decimals: true },
-            { label: 'Semester', value: 5, suffix: 'th' },
+            { label: 'Semester', value: 6, suffix: 'th' },
             { label: 'Projects', value: 0, suffix: '+' },
             { label: 'Certifications', value: 0, suffix: '+' },
           ].map((stat, i) => (

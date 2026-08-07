@@ -30,6 +30,8 @@ export default function AnimatedCounter({ target, duration = 2, suffix = '', pre
 
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else {
+        setCount(end);
       }
     }
 

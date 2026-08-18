@@ -1,15 +1,13 @@
 import sys
 import os
 import uvicorn
+import torch
+import spaces
 
 # Hugging Face ZeroGPU requires at least one function decorated with @spaces.GPU during startup
-try:
-    import spaces
-    @spaces.GPU
-    def dummy_gpu_function():
-        return "Satisfying Hugging Face ZeroGPU check"
-except Exception:
-    pass
+@spaces.GPU
+def dummy_gpu_function():
+    return "Satisfying Hugging Face ZeroGPU check"
 
 # Add the backend directory to the Python path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'backend'))

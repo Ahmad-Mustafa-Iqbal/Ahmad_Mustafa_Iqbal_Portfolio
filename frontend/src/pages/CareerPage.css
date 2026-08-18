@@ -181,8 +181,12 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .career-hero {
+    padding-top: var(--space-xl);
+  }
+
   .timeline__line {
-    left: 20px;
+    left: 16px;
   }
 
   .timeline__item,
@@ -190,14 +194,36 @@
   .timeline__item--right {
     width: 100%;
     margin-left: 0;
-    padding-left: 60px;
-    padding-right: var(--space-md);
+    padding-left: 48px;
+    padding-right: 0;
     justify-content: flex-start;
   }
 
   .timeline__item--left .timeline__dot,
   .timeline__item--right .timeline__dot {
-    left: 2px;
+    left: 0;
     right: auto;
+    width: 32px;
+    height: 32px;
+  }
+
+  .timeline__card {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline__card {
+    padding: var(--space-md);
+  }
+
+  .timeline__title {
+    font-size: var(--fs-lg);
+  }
+
+  .timeline__card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }

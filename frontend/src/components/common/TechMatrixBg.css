@@ -1,0 +1,44 @@
+/* ── Tech Matrix Background ── */
+
+.tech-matrix-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg-primary, #0a0a0f);
+}
+
+.tech-matrix-bg__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tech-matrix-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.08) 0%, rgba(167, 139, 250, 0.04) 50%, transparent 70%);
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(90px);
+  pointer-events: none;
+  animation: pulseGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: 0.9; }
+}
+
+@media (max-width: 768px) {
+  .tech-matrix-glow {
+    width: 300px;
+    height: 300px;
+    filter: blur(60px);
+  }
+}

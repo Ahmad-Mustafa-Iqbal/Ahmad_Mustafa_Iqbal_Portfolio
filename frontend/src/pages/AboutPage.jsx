@@ -5,7 +5,7 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import GlassCard from '../components/common/GlassCard';
-import NeuralNetworkBg from '../components/common/NeuralNetworkBg';
+import AmbientGradientBg from '../components/common/AmbientGradientBg';
 import skills from '../data/skills';
 import { HiAcademicCap, HiLightningBolt, HiCode } from 'react-icons/hi';
 import myPhoto from '../assets/edited-photo.png';
@@ -25,7 +25,7 @@ const fadeUp = {
 export default function AboutPage() {
   return (
     <div className="about-page">
-      <NeuralNetworkBg />
+      <AmbientGradientBg />
       {/* ── About Header ── */}
       <section className="about-header section">
         <div className="container">

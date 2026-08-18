@@ -12,7 +12,6 @@ const navItems = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/career', label: 'Career' },
-  { path: '/my-story', label: 'My Story' },
   { path: '/projects', label: 'Projects' },
   { path: '/certificates', label: 'Certificates' },
 ];

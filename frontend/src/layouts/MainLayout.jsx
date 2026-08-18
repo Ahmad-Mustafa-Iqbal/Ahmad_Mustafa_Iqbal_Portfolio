@@ -28,7 +28,6 @@ export default function MainLayout() {
 
   return (
     <div className="main-layout">
-      {location.pathname !== '/career' && location.pathname !== '/about' && <ParticleBackground />}
       <Navbar />
       <main className="main-layout__content">
         <AnimatePresence mode="wait">

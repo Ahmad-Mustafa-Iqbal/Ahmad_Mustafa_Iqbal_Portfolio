@@ -314,18 +314,57 @@
 }
 
 @media (max-width: 480px) {
-  .stats__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+  .hero {
+    min-height: auto;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .hero__name {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero__role {
+    font-size: var(--fs-lg);
+    justify-content: center;
   }
 
   .hero__avatar {
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
   }
 
   .hero__btn {
     width: 100%;
     justify-content: center;
+    padding: 10px 20px;
+  }
+
+  .stats__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .stats__card {
+    padding: var(--space-md) var(--space-xs);
+  }
+
+  .stats__value {
+    font-size: var(--fs-2xl);
+  }
+
+  .quick-about__card {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
+@media (max-width: 360px) {
+  .stats__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__avatar {
+    width: 180px;
+    height: 180px;
   }
 }

@@ -154,22 +154,35 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .about-header {
+    padding-top: var(--space-xl);
+  }
+
   .about-header__grid {
     grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
+  }
+
+  .about-header__image-wrapper {
+    justify-content: center;
   }
 
   .about-header__content {
     align-items: center;
-    text-align: center;
+    text-align: left;
+  }
+
+  .about-header__text {
+    text-align: left;
   }
 
   .about-highlights__row {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   .about-skills__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
 }

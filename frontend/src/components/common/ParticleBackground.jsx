@@ -6,15 +6,14 @@
 import { useEffect, useRef } from 'react';
 import './ParticleBackground.css';
 
-const PARTICLE_COUNT = 110;
-const CONNECTION_DIST = 155;
-const MOUSE_RADIUS = 220;
-const BASE_SPEED = 0.04;
+const CONNECTION_DIST = 105;
+const MOUSE_RADIUS = 180;
+const BASE_SPEED = 0.03;
 const PARTICLE_COLOR = '76, 201, 240';
-const BASE_PARTICLE_OPACITY = 0.5;
-const BASE_LINE_OPACITY = 0.3;
-const CURSOR_PARTICLE_OPACITY = 0.8;
-const CURSOR_LINE_OPACITY = 0.55;
+const BASE_PARTICLE_OPACITY = 0.2;
+const BASE_LINE_OPACITY = 0.08;
+const CURSOR_PARTICLE_OPACITY = 0.45;
+const CURSOR_LINE_OPACITY = 0.22;
 
 export default function ParticleBackground() {
   const canvasRef = useRef(null);
@@ -34,14 +33,15 @@ export default function ParticleBackground() {
 
     function createParticles() {
       particlesRef.current = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const count = window.innerWidth < 768 ? 20 : 40;
+      for (let i = 0; i < count; i++) {
         const angle = Math.random() * Math.PI * 2;
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           vx: Math.cos(angle) * BASE_SPEED,
           vy: Math.sin(angle) * BASE_SPEED,
-          r: Math.random() * 1.8 + 0.5,
+          r: Math.random() * 1.5 + 0.4,
         });
       }
     }

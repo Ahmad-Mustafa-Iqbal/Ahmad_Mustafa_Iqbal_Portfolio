@@ -7,7 +7,10 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import socialLinks from '../data/socialLinks';
+import certificates from '../data/certificates';
 import AnimatedCounter from '../components/common/AnimatedCounter';
+import HeroNeuralCoreBg from '../components/common/HeroNeuralCoreBg';
+import { fetchGitHubProjects } from '../services/github';
 import profilePic from '../assets/Me.png';
 import './HomePage.css';
 
@@ -17,6 +20,26 @@ export default function HomePage() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [projectCount, setProjectCount] = useState(13);
+
+  /* Fetch project count from backend */
+  useEffect(() => {
+    let isMounted = true;
+    async function loadStats() {
+      try {
+        const data = await fetchGitHubProjects();
+        if (isMounted && data && (data.total || data.projects)) {
+          setProjectCount(data.total || data.projects.length);
+        }
+      } catch (err) {
+        console.warn('Could not fetch project count from backend:', err);
+      }
+    }
+    loadStats();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   /* Typing effect */
   useEffect(() => {
@@ -43,6 +66,7 @@ export default function HomePage() {
 
   return (
     <div className="home">
+      <HeroNeuralCoreBg />
       {/* ── Hero ── */}
       <section className="hero section">
         <div className="hero__inner container">
@@ -162,8 +186,8 @@ export default function HomePage() {
           {[
             { label: 'CGPA', value: 3.87, suffix: '', decimals: true },
             { label: 'Semester', value: 6, suffix: 'th' },
-            { label: 'Projects', value: 0, suffix: '+' },
-            { label: 'Certifications', value: 0, suffix: '+' },
+            { label: 'Projects', value: projectCount, suffix: '+' },
+            { label: 'Certifications', value: certificates.length, suffix: '+' },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}

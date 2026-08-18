@@ -47,6 +47,17 @@ def custom_create_app(*args, **kwargs):
     async def health_check():
         return {"status": "ok"}
         
+    # Reorder routes: move /api routes to the front of the routing table
+    # This prevents Gradio's catch-all/wildcard routes from intercepting API calls
+    api_routes = []
+    other_routes = []
+    for route in app.router.routes:
+        if hasattr(route, 'path') and route.path.startswith("/api"):
+            api_routes.append(route)
+        else:
+            other_routes.append(route)
+            
+    app.router.routes = api_routes + other_routes
     return app
 
 # Apply the monkeypatch

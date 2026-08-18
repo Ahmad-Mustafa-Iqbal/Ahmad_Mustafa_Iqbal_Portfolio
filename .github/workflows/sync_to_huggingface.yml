@@ -18,4 +18,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://Ahmad-Mustafa-Iqbal:$HF_TOKEN@huggingface.co/spaces/Ahmad-Mustafa-Iqbal/ahmad-portfolio-backend main
+          git push --force https://MoZI1223:$HF_TOKEN@huggingface.co/spaces/MoZI1223/Ahmad_Mustafa_Iqbal_Portfolio main

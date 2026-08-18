@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://YOUR-BACKEND-URL.onrender.com/api/:path*"
+      "destination": "https://mozi1223-ahmad-mustafa-iqbal-portfolio.hf.space/api/:path*"
     },
     {
       "source": "/(.*)",

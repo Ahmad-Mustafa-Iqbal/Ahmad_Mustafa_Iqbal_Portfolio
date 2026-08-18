@@ -25,28 +25,33 @@ with gr.Blocks() as demo:
     out = gr.Textbox(label="Status")
     btn.click(fn=dummy_gpu_function, outputs=out)
 
-# Create the Gradio FastAPI app instance
-app = gr.routes.App.create_app(demo)
+# Monkeypatch Gradio's internal FastAPI app creator to inject our routes dynamically
+original_create_app = gr.routes.App.create_app
 
-# Configure CORS directly on Gradio's FastAPI app so our frontend can access it
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+def custom_create_app(*args, **kwargs):
+    app = original_create_app(*args, **kwargs)
+    
+    # Configure CORS on Gradio's app so our frontend can access it
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+    
+    # Register our backend endpoints directly on Gradio's FastAPI app
+    app.include_router(github_router, prefix="/api/github", tags=["GitHub"])
+    
+    @app.get("/api/health")
+    async def health_check():
+        return {"status": "ok"}
+        
+    return app
 
-# Register our backend endpoints directly on Gradio's FastAPI app
-app.include_router(github_router, prefix="/api/github", tags=["GitHub"])
-
-@app.get("/api/health")
-async def health_check():
-    return {"status": "ok"}
-
-# Link it back to demo.app so that demo.launch() uses the combined app
-demo.app = app
+# Apply the monkeypatch
+gr.routes.App.create_app = custom_create_app
 
 if __name__ == "__main__":
-    # Launch the Gradio app using the native launch method
+    # Launch the Gradio app using the native launch method, which handles HF port binding
     demo.launch(server_name="0.0.0.0", server_port=7860)

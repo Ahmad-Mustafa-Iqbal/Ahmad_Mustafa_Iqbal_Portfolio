@@ -2,7 +2,7 @@
    Service: GitHub API Client
    ================================================ */
 
-const API_BASE = '/api/github';
+const API_BASE = 'https://mozi1223-ahmad-mustafa-iqbal-portfolio.hf.space/api/github';
 
 /**
  * Fetch GitHub projects from the backend API.

@@ -1,6 +1,5 @@
 import sys
 import os
-import uvicorn
 import torch
 import spaces
 import gradio as gr
@@ -25,10 +24,16 @@ with gr.Blocks() as demo:
     out = gr.Textbox(label="Status")
     btn.click(fn=dummy_gpu_function, outputs=out)
 
-# Mount the Gradio app onto our FastAPI app at the root "/"
-# This allows the Hugging Face supervisor to see a running Gradio interface
-app = gr.mount_gradio_app(fastapi_app, demo, path="/")
+# Create the Gradio FastAPI app instance
+app = gr.routes.App.create_app(demo)
+
+# Mount our FastAPI app onto the Gradio app at "/api"
+# This serves all backend routes under "/api" (e.g., "/api/github/repos")
+app.mount("/api", fastapi_app)
+
+# Link it back to demo.app so that demo.launch() uses the combined app
+demo.app = app
 
 if __name__ == "__main__":
-    # Start the server on port 7860 (Hugging Face default)
-    uvicorn.run(app, host="0.0.0.0", port=7860)
+    # Launch the Gradio app using the native launch method, which handles HF port binding
+    demo.launch(server_name="0.0.0.0", server_port=7860)

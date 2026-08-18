@@ -18,8 +18,18 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
+          # Delete git history and frontend files
+          rm -rf .git
+          rm -rf frontend
+          
+          # Initialize a new, clean repository
+          git init -b main
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git rm -rf frontend
-          git commit -m "chore: remove frontend directory for Hugging Face deployment"
-          git push --force https://MoZI1223:$HF_TOKEN@huggingface.co/spaces/MoZI1223/Ahmad_Mustafa_Iqbal_Portfolio HEAD:main
+          
+          # Stage and commit remaining backend files
+          git add .
+          git commit -m "deploy: clean backend deployment"
+          
+          # Force push to Hugging Face
+          git push --force https://MoZI1223:$HF_TOKEN@huggingface.co/spaces/MoZI1223/Ahmad_Mustafa_Iqbal_Portfolio main
